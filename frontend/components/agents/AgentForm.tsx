@@ -190,12 +190,47 @@ export function AgentForm({ agent }: AgentFormProps) {
     setSaving(true);
     setError(null);
 
+    if (!form.name.trim()) {
+      setError("Agent name is required");
+      setSaving(false);
+      return;
+    }
+
+    // Filter out completely blank criteria that might have been added inadvertently
+    const cleanedCriteria = form.criteria.filter(
+      (c) => c.name.trim().length > 0 || c.description.trim().length > 0
+    );
+
+    // Validate that if any criteria exist, both name and description are filled
+    for (let i = 0; i < cleanedCriteria.length; i++) {
+      if (!cleanedCriteria[i].name.trim()) {
+        setError(`Criterion #${i + 1} requires a name`);
+        setSaving(false);
+        return;
+      }
+      if (!cleanedCriteria[i].description.trim()) {
+        setError(`Criterion #${i + 1} ("${cleanedCriteria[i].name}") requires a description`);
+        setSaving(false);
+        return;
+      }
+    }
+
+    const payload: AgentFormData = {
+      ...form,
+      name: form.name.trim(),
+      criteria: cleanedCriteria.map((c) => ({
+        ...c,
+        name: c.name.trim(),
+        description: c.description.trim(),
+      })),
+    };
+
     try {
       if (agent) {
-        await agentApi.update(agent.id, form);
+        await agentApi.update(agent.id, payload);
         router.push(`/agents/${agent.id}`);
       } else {
-        const created = await agentApi.create(form);
+        const created = await agentApi.create(payload);
         router.push(`/agents/${created.id}`);
       }
     } catch (err) {

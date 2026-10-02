@@ -40,7 +40,8 @@ router.post("/", async (req: Request, res: Response) => {
     res.status(201).json(agent);
   } catch (error) {
     if (error instanceof ZodError) {
-      res.status(400).json({ error: "Validation failed", details: error.errors });
+      const msg = error.errors.map((e) => `${e.path.join(".") || "field"}: ${e.message}`).join(", ");
+      res.status(400).json({ error: msg || "Validation failed", details: error.errors });
       return;
     }
     console.error("Failed to create agent:", error);
@@ -56,7 +57,8 @@ router.patch("/:id", async (req: Request, res: Response) => {
     res.json(agent);
   } catch (error) {
     if (error instanceof ZodError) {
-      res.status(400).json({ error: "Validation failed", details: error.errors });
+      const msg = error.errors.map((e) => `${e.path.join(".") || "field"}: ${e.message}`).join(", ");
+      res.status(400).json({ error: msg || "Validation failed", details: error.errors });
       return;
     }
     if (error instanceof NotFoundError) {

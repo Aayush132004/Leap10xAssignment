@@ -34,11 +34,16 @@ async function request<T>(
 
   if (!res.ok) {
     const body = await res.json().catch(() => ({}));
-    throw new ApiError(
-      body.error || body.message || `Request failed: ${res.status}`,
-      res.status,
-      body.details
-    );
+    let msg = body.error || body.message || `Request failed: ${res.status}`;
+    if (Array.isArray(body.details) && body.details.length > 0) {
+      const fieldErrors = body.details
+        .map((d: any) => d.message || `${d.path?.join(".")}: ${d.code}`)
+        .filter(Boolean);
+      if (fieldErrors.length > 0) {
+        msg = `${msg}: ${fieldErrors.join("; ")}`;
+      }
+    }
+    throw new ApiError(msg, res.status, body.details);
   }
 
   if (res.status === 204) return undefined as T;
