@@ -152,7 +152,12 @@ function extractCallsFromJson(parsed: unknown): ParsedCallItem[] {
 
     return [
       {
-        externalId: (obj.id as string) || (obj.externalId as string) || null,
+        externalId:
+          (obj.call_id as string) ||
+          (obj.callId as string) ||
+          (obj.id as string) ||
+          (obj.externalId as string) ||
+          null,
         language: (obj.language as string) || (obj.lang as string) || null,
         durationSeconds: dur && dur > 0 ? dur : null,
         transcript: turns,
@@ -206,7 +211,12 @@ function extractCallsFromJson(parsed: unknown): ParsedCallItem[] {
           : null;
 
       return {
-        externalId: (obj.id as string) || (obj.externalId as string) || `call-${idx + 1}`,
+        externalId:
+          (obj.call_id as string) ||
+          (obj.callId as string) ||
+          (obj.id as string) ||
+          (obj.externalId as string) ||
+          `call-${idx + 1}`,
         language: (obj.language as string) || (obj.lang as string) || null,
         durationSeconds: dur && dur > 0 ? dur : null,
         transcript: turns,
@@ -308,6 +318,8 @@ export function CallUpload({ agents, onUploadSuccess }: CallUploadProps) {
     }
   };
 
+  const [callIdInput, setCallIdInput] = useState("");
+
   const handleTextSubmit = async () => {
     if (!selectedAgent || !textInput.trim()) {
       setError("Please select an agent and enter a transcript.");
@@ -321,17 +333,30 @@ export function CallUpload({ agents, onUploadSuccess }: CallUploadProps) {
     try {
       const turns = normalizeTranscriptTurns(textInput);
       if (turns.length === 0) {
-        throw new Error("No readable turns found. Use format 'Agent: ...' and 'User: ...'");
+        throw new Error("No readable turns found. Use format 'Agent: ...' and 'User: ...' or valid JSON turns.");
+      }
+
+      let detectedExternalId = callIdInput.trim() || undefined;
+      try {
+        const parsed = JSON.parse(textInput);
+        if (parsed && typeof parsed === "object") {
+          const id = parsed.call_id || parsed.callId || parsed.id || parsed.externalId;
+          if (id) detectedExternalId = String(id);
+        }
+      } catch {
+        // Plain text transcript
       }
 
       await callApi.create({
         agentId: selectedAgent,
         source: "upload",
         transcript: turns,
+        externalId: detectedExternalId,
       });
 
       setSuccessMsg("Call created successfully.");
       setTextInput("");
+      setCallIdInput("");
 
       if (onUploadSuccess) {
         onUploadSuccess();
@@ -409,18 +434,31 @@ export function CallUpload({ agents, onUploadSuccess }: CallUploadProps) {
           </p>
         </TabsContent>
 
-        <TabsContent value="text">
-          <Textarea
-            className="min-h-[200px] font-mono text-xs"
-            placeholder={`Paste transcript turns:\nAgent: Hello, this is Nimbus Broadband support. Am I speaking with the account holder?\nUser: Yes, I am having trouble with my internet.\nAgent: Could you please confirm the last 4 digits of your registered mobile number?`}
-            value={textInput}
-            onChange={(e) => setTextInput(e.target.value)}
-          />
+        <TabsContent value="text" className="space-y-3">
+          <div>
+            <Label className="text-xs">Call ID / Reference (optional)</Label>
+            <input
+              type="text"
+              placeholder="e.g. trn-02, sup-01 (used to match with human labels)"
+              value={callIdInput}
+              onChange={(e) => setCallIdInput(e.target.value)}
+              className="w-full bg-paper-100 border border-ink-100 rounded-sm px-3 py-1.5 text-xs text-ink-500 focus:outline-none focus:ring-1 focus:ring-primary mt-1"
+            />
+          </div>
+          <div>
+            <Label className="text-xs">Transcript Turns (or raw JSON)</Label>
+            <Textarea
+              className="min-h-[180px] font-mono text-xs mt-1"
+              placeholder={`Paste transcript turns or raw JSON:\nAgent: Hello, this is Nimbus Broadband support. Am I speaking with the account holder?\nUser: Yes, I am having trouble with my internet.\nAgent: Could you please confirm the last 4 digits of your registered mobile number?`}
+              value={textInput}
+              onChange={(e) => setTextInput(e.target.value)}
+            />
+          </div>
           <Button
             type="button"
             onClick={handleTextSubmit}
             disabled={uploading || !selectedAgent || !textInput.trim()}
-            className="mt-3"
+            className="w-full"
           >
             {uploading ? "Creating…" : "Create Call"}
           </Button>
