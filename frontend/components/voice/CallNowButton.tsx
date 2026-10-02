@@ -92,6 +92,14 @@ export function CallNowButton({ agentId }: CallNowButtonProps) {
       return;
     }
 
+    if (typeof window !== "undefined" && !window.isSecureContext) {
+      setError(
+        "Browser blocked microphone: Browsers disable microphone on plain HTTP IP addresses (only HTTPS or localhost are allowed). To test on this IP in Chrome: open chrome://flags/#unsafely-treat-insecure-origin-as-secure, enable it, add http://161.118.185.230, and relaunch."
+      );
+      setPhase("error");
+      return;
+    }
+
     setError(null);
     setPhase("connecting");
     setTurns([]);
@@ -122,9 +130,19 @@ export function CallNowButton({ agentId }: CallNowButtonProps) {
         saveTranscript();
       });
 
-      vapi.on("error", (err: unknown) => {
+      vapi.on("error", (err: any) => {
         console.error("Vapi call error:", err);
-        setError(err instanceof Error ? err.message : "The call ended unexpectedly.");
+        const msg =
+          err?.error?.message ||
+          err?.message ||
+          (typeof err === "string" ? err : null);
+        if (msg) {
+          setError(msg);
+        } else if (typeof window !== "undefined" && !window.isSecureContext) {
+          setError("Microphone access failed: browsers block microphone on plain HTTP IP addresses. Access via HTTPS or enable the Chrome insecure origin flag.");
+        } else {
+          setError("The call ended unexpectedly.");
+        }
         setPhase("error");
       });
 
