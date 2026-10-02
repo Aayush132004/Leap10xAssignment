@@ -4,7 +4,7 @@ export const criterionSchema = z.object({
   id: z.string().uuid().optional(),
   name: z.string().min(1, "Criterion name is required"),
   weight: z.number().positive("Weight must be greater than 0").max(10).default(1.0),
-  description: z.string().min(1, "Criterion description is required"),
+  description: z.string().optional().nullable().default("").transform((d) => d || ""),
   goodLooksLike: z.string().optional().nullable(),
   badLooksLike: z.string().optional().nullable(),
 });

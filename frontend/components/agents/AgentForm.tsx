@@ -196,33 +196,41 @@ export function AgentForm({ agent }: AgentFormProps) {
       return;
     }
 
-    // Filter out completely blank criteria that might have been added inadvertently
-    const cleanedCriteria = form.criteria.filter(
-      (c) => c.name.trim().length > 0 || c.description.trim().length > 0
-    );
-
-    // Validate that if any criteria exist, both name and description are filled
-    for (let i = 0; i < cleanedCriteria.length; i++) {
-      if (!cleanedCriteria[i].name.trim()) {
-        setError(`Criterion #${i + 1} requires a name`);
-        setSaving(false);
-        return;
-      }
-      if (!cleanedCriteria[i].description.trim()) {
-        setError(`Criterion #${i + 1} ("${cleanedCriteria[i].name}") requires a description`);
-        setSaving(false);
-        return;
-      }
+    // Auto-capture any pending inputs user typed before clicking save
+    let finalGuidelines = [...form.guidelines];
+    if (guidelineInput.trim()) {
+      const extra = guidelineInput.split("\n").map((l) => l.trim()).filter(Boolean);
+      finalGuidelines.push(...extra);
     }
+
+    let finalKnowledge = [...form.knowledge];
+    if (knowledgeInput.trim()) {
+      const extra = knowledgeInput.split("\n").map((l) => l.trim()).filter(Boolean);
+      finalKnowledge.push(...extra);
+    }
+
+    let finalScoringNotes = [...form.scoringNotes];
+    if (scoringNoteInput.trim()) {
+      const extra = scoringNoteInput.split("\n").map((l) => l.trim()).filter(Boolean);
+      finalScoringNotes.push(...extra);
+    }
+
+    // Filter out completely blank criteria and auto-fill description if omitted
+    const cleanedCriteria = form.criteria
+      .filter((c) => c.name.trim().length > 0)
+      .map((c) => ({
+        ...c,
+        name: c.name.trim(),
+        description: (c.description || c.goodLooksLike || c.name).trim(),
+      }));
 
     const payload: AgentFormData = {
       ...form,
       name: form.name.trim(),
-      criteria: cleanedCriteria.map((c) => ({
-        ...c,
-        name: c.name.trim(),
-        description: c.description.trim(),
-      })),
+      guidelines: finalGuidelines,
+      knowledge: finalKnowledge,
+      scoringNotes: finalScoringNotes,
+      criteria: cleanedCriteria,
     };
 
     try {
