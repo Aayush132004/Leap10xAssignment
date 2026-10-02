@@ -19,26 +19,36 @@ export class CallService {
     });
   }
 
-  async getById(id: string) {
-    const call = await prisma.call.findUnique({
-      where: { id },
-      include: {
-        agent: { select: { id: true, name: true } },
-        evaluations: {
-          include: {
-            criterionEvaluations: {
-              include: {
-                criterion: { select: { id: true, name: true, weight: true, description: true } },
-              },
+  async getById(idOrExternalId: string) {
+    const includeQuery = {
+      agent: { select: { id: true, name: true } },
+      evaluations: {
+        include: {
+          criterionEvaluations: {
+            include: {
+              criterion: { select: { id: true, name: true, weight: true, description: true } },
             },
           },
-          orderBy: { createdAt: "desc" },
         },
+        orderBy: { createdAt: "desc" as const },
       },
-    });
+    };
+
+    let call = await prisma.call.findUnique({
+      where: { id: idOrExternalId },
+      include: includeQuery,
+    }).catch(() => null);
 
     if (!call) {
-      throw new NotFoundError(`Call not found: ${id}`);
+      call = await prisma.call.findFirst({
+        where: { externalId: idOrExternalId },
+        include: includeQuery,
+        orderBy: { createdAt: "desc" },
+      });
+    }
+
+    if (!call) {
+      throw new NotFoundError(`Call not found: ${idOrExternalId}`);
     }
 
     return call;
