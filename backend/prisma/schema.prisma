@@ -1,0 +1,112 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Agent {
+  id               String      @id @default(uuid())
+  name             String
+  useCase          String?     @map("use_case")
+  persona          String?
+  goal             String?
+  openingLine      String?     @map("opening_line")
+  guidelines       String[]
+  knowledge        String[]
+  scoringNotes     String[]    @default([]) @map("scoring_notes")
+  language         String      @default("en")
+  evaluationTarget String?     @map("evaluation_target")
+  passThreshold    Float       @default(3.0) @map("pass_threshold")
+  createdAt        DateTime    @default(now()) @map("created_at")
+  updatedAt        DateTime    @updatedAt @map("updated_at")
+
+  criteria    Criterion[]
+  hardRules   HardRule[]
+  calls       Call[]
+  evaluations Evaluation[]
+
+  @@map("agents")
+}
+
+model Criterion {
+  id            String  @id @default(uuid())
+  agentId       String  @map("agent_id")
+  name          String
+  weight        Float   @default(1.0)
+  description   String
+  goodLooksLike String? @map("good_looks_like")
+  badLooksLike  String? @map("bad_looks_like")
+
+  agent                Agent                @relation(fields: [agentId], references: [id], onDelete: Cascade)
+  criterionEvaluations CriterionEvaluation[]
+
+  @@map("criteria")
+}
+
+model HardRule {
+  id          String   @id @default(uuid())
+  agentId     String   @map("agent_id")
+  type        String   // "criterion_below" | "any_below" | "not_assessable_fail" | "failure_tag_any"
+  criterionId String?  @map("criterion_id")
+  threshold   Int?
+  tags        String[] @default([]) // used by "failure_tag_any": fails if any criterion's failureTags intersects this list
+  description String?
+
+  agent Agent @relation(fields: [agentId], references: [id], onDelete: Cascade)
+
+  @@map("hard_rules")
+}
+
+model Call {
+  id              String   @id @default(uuid())
+  agentId         String   @map("agent_id")
+  source          String   // "dataset" | "upload" | "vapi"
+  externalId      String?  @map("external_id")
+  language        String?
+  durationSeconds Int?     @map("duration_seconds")
+  transcript      Json     // TranscriptTurn[]
+  createdAt       DateTime @default(now()) @map("created_at")
+
+  agent       Agent        @relation(fields: [agentId], references: [id], onDelete: Cascade)
+  evaluations Evaluation[]
+
+  @@map("calls")
+}
+
+model Evaluation {
+  id                  String   @id @default(uuid())
+  callId              String   @map("call_id")
+  agentId             String   @map("agent_id")
+  overallScore        Float    @map("overall_score")
+  result              String   // "PASS" | "FAIL"
+  unusualThings       String[] @map("unusual_things")
+  model               String
+  promptVersion       String   @map("prompt_version")
+  agentConfigSnapshot Json     @map("agent_config_snapshot")
+  createdAt           DateTime @default(now()) @map("created_at")
+
+  call                 Call                  @relation(fields: [callId], references: [id], onDelete: Cascade)
+  agent                Agent                 @relation(fields: [agentId], references: [id], onDelete: Cascade)
+  criterionEvaluations CriterionEvaluation[]
+
+  @@map("evaluations")
+}
+
+model CriterionEvaluation {
+  id            String   @id @default(uuid())
+  evaluationId  String   @map("evaluation_id")
+  criterionId   String   @map("criterion_id")
+  score         Int?     // 1-5 or null for NOT_ASSESSABLE
+  status        String   // "SCORED" | "NOT_ASSESSABLE"
+  reasoning     String
+  evidenceTurns Int[]    @map("evidence_turns")
+  failureTags   String[] @map("failure_tags")
+
+  evaluation Evaluation @relation(fields: [evaluationId], references: [id], onDelete: Cascade)
+  criterion  Criterion  @relation(fields: [criterionId], references: [id], onDelete: Cascade)
+
+  @@map("criterion_evaluations")
+}

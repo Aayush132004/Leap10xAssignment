@@ -1,0 +1,108 @@
+{
+  "call_id": "sup-06",
+  "agent_id": "support-nimbus-broadband",
+  "started_at": "2026-09-11T09:48:15+05:30",
+  "duration_sec": 69.4,
+  "end_reason": "caller_hung_up",
+  "language": "en-IN",
+  "turns": [
+    {
+      "idx": 0,
+      "speaker": "agent",
+      "start_sec": 0.3,
+      "end_sec": 5.1,
+      "text": "Hi, this is Nimbus Broadband support. Am I speaking with the account holder?"
+    },
+    {
+      "idx": 1,
+      "speaker": "user",
+      "start_sec": 6.2,
+      "end_sec": 9.9,
+      "text": "Yes, Farah Khan. My internet is completely down."
+    },
+    {
+      "idx": 2,
+      "speaker": "agent",
+      "start_sec": 10.7,
+      "end_sec": 15.5,
+      "text": "Could you tell me the last four digits of your registered mobile number?"
+    },
+    {
+      "idx": 3,
+      "speaker": "user",
+      "start_sec": 16.0,
+      "end_sec": 16.8,
+      "text": "3381."
+    },
+    {
+      "idx": 4,
+      "speaker": "agent",
+      "start_sec": 17.7,
+      "end_sec": 23.3,
+      "text": "Thank you. Could you tell me the last four digits of your registered mobile number?"
+    },
+    {
+      "idx": 5,
+      "speaker": "user",
+      "start_sec": 24.3,
+      "end_sec": 26.7,
+      "text": "I just told you. 3381."
+    },
+    {
+      "idx": 6,
+      "speaker": "agent",
+      "start_sec": 27.1,
+      "end_sec": 30.1,
+      "text": "Thank you, verified. How can I help today?"
+    },
+    {
+      "idx": 7,
+      "speaker": "user",
+      "start_sec": 30.7,
+      "end_sec": 36.1,
+      "text": "Internet is down. There's a red light on the router, it says LOS."
+    },
+    {
+      "idx": 8,
+      "speaker": "agent",
+      "start_sec": 36.9,
+      "end_sec": 43.9,
+      "text": "I understand you're experiencing loss of speed. Could you restart your router by switching it off for thirty seconds?"
+    },
+    {
+      "idx": 9,
+      "speaker": "user",
+      "start_sec": 44.9,
+      "end_sec": 49.5,
+      "text": "Not loss. L-O-S. The red light. I've already restarted it three times."
+    },
+    {
+      "idx": 10,
+      "speaker": "agent",
+      "start_sec": 50.6,
+      "end_sec": 55.7,
+      "text": "I understand. Could you restart your router by switching it off for thirty seconds?"
+    },
+    {
+      "idx": 11,
+      "speaker": "user",
+      "start_sec": 56.4,
+      "end_sec": 59.5,
+      "text": "Are you even listening? I restarted it."
+    },
+    {
+      "idx": 12,
+      "speaker": "agent",
+      "start_sec": 60.7,
+      "end_sec": 66.9,
+      "text": "I'm sorry for the trouble. Let's try a restart. Please switch the router off for thirty seconds."
+    },
+    {
+      "idx": 13,
+      "speaker": "user",
+      "start_sec": 67.5,
+      "end_sec": 69.4,
+      "text": "Forget it. I'll call later."
+    }
+  ]
+}

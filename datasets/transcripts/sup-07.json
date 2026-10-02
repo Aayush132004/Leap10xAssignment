@@ -1,0 +1,115 @@
+{
+  "call_id": "sup-07",
+  "agent_id": "support-nimbus-broadband",
+  "started_at": "2026-09-11T19:31:02+05:30",
+  "duration_sec": 59.4,
+  "end_reason": "completed",
+  "language": "en-IN",
+  "turns": [
+    {
+      "idx": 0,
+      "speaker": "agent",
+      "start_sec": 0.3,
+      "end_sec": 5.1,
+      "text": "Hi, this is Nimbus Broadband support. Am I speaking with the account holder?"
+    },
+    {
+      "idx": 1,
+      "speaker": "user",
+      "start_sec": 6.4,
+      "end_sec": 7.5,
+      "text": "Yes, Deepak Nair."
+    },
+    {
+      "idx": 2,
+      "speaker": "agent",
+      "start_sec": 8.0,
+      "end_sec": 12.1,
+      "text": "Thanks Deepak. The last four digits of your registered mobile, please?"
+    },
+    {
+      "idx": 3,
+      "speaker": "user",
+      "start_sec": 13.1,
+      "end_sec": 13.9,
+      "text": "5120."
+    },
+    {
+      "idx": 4,
+      "speaker": "agent",
+      "start_sec": 14.3,
+      "end_sec": 16.2,
+      "text": "Verified. How can I help?"
+    },
+    {
+      "idx": 5,
+      "speaker": "user",
+      "start_sec": 17.3,
+      "end_sec": 21.6,
+      "text": "Every evening the speed drops a lot. Mornings are fine."
+    },
+    {
+      "idx": 6,
+      "speaker": "agent",
+      "start_sec": 22.0,
+      "end_sec": 25.0,
+      "text": "I see. Have you tried restarting the router?"
+    },
+    {
+      "idx": 7,
+      "speaker": "user",
+      "start_sec": 25.5,
+      "end_sec": 27.3,
+      "text": "Yes, just before calling."
+    },
+    {
+      "idx": 8,
+      "speaker": "agent",
+      "start_sec": 28.0,
+      "end_sec": 31.7,
+      "text": "Could you run a speed test in the Nimbus app?"
+    },
+    {
+      "idx": 9,
+      "speaker": "user",
+      "start_sec": 32.7,
+      "end_sec": 35.7,
+      "text": "22 Mbps. I'm on the 100 plan."
+    },
+    {
+      "idx": 10,
+      "speaker": "agent",
+      "start_sec": 36.8,
+      "end_sec": 43.5,
+      "text": "Thanks. Speeds can vary during peak evening hours when many people are online. That's normal on shared networks."
+    },
+    {
+      "idx": 11,
+      "speaker": "user",
+      "start_sec": 44.7,
+      "end_sec": 47.5,
+      "text": "Oh, okay. So nothing to do?"
+    },
+    {
+      "idx": 12,
+      "speaker": "agent",
+      "start_sec": 48.3,
+      "end_sec": 53.9,
+      "text": "It should get better later at night. Is there anything else I can help with?"
+    },
+    {
+      "idx": 13,
+      "speaker": "user",
+      "start_sec": 54.4,
+      "end_sec": 55.7,
+      "text": "No, okay. Thanks."
+    },
+    {
+      "idx": 14,
+      "speaker": "agent",
+      "start_sec": 56.8,
+      "end_sec": 59.4,
+      "text": "You're welcome, Deepak. Have a good evening."
+    }
+  ]
+}

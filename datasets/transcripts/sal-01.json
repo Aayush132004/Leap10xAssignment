@@ -1,0 +1,150 @@
+{
+  "call_id": "sal-01",
+  "agent_id": "sales-clinicdesk-pitch",
+  "started_at": "2026-09-14T15:04:40+05:30",
+  "duration_sec": 129.4,
+  "end_reason": "completed",
+  "language": "en-IN",
+  "turns": [
+    {
+      "idx": 0,
+      "speaker": "agent",
+      "start_sec": 0.3,
+      "end_sec": 5.1,
+      "text": "Hello, Dr. Mehta speaking. I have about five minutes. What is this about?"
+    },
+    {
+      "idx": 1,
+      "speaker": "user",
+      "start_sec": 5.7,
+      "end_sec": 17.9,
+      "text": "Hi Doctor, I'm Sameer from ClinicDesk. We help clinics manage appointments. Before I say anything about us, can I ask how patients book with you today?"
+    },
+    {
+      "idx": 2,
+      "speaker": "agent",
+      "start_sec": 18.4,
+      "end_sec": 22.4,
+      "text": "They call the clinic. My receptionist writes it in the diary."
+    },
+    {
+      "idx": 3,
+      "speaker": "user",
+      "start_sec": 23.4,
+      "end_sec": 27.4,
+      "text": "How many calls does she handle in a day?"
+    },
+    {
+      "idx": 4,
+      "speaker": "agent",
+      "start_sec": 28.3,
+      "end_sec": 31.3,
+      "text": "Around eighty. It's a lot for one person."
+    },
+    {
+      "idx": 5,
+      "speaker": "user",
+      "start_sec": 31.8,
+      "end_sec": 35.6,
+      "text": "And do patients always turn up for their slots?"
+    },
+    {
+      "idx": 6,
+      "speaker": "agent",
+      "start_sec": 36.0,
+      "end_sec": 41.2,
+      "text": "No. Maybe a quarter don't come. It's a big problem, the chair sits empty."
+    },
+    {
+      "idx": 7,
+      "speaker": "user",
+      "start_sec": 42.0,
+      "end_sec": 66.6,
+      "text": "A quarter is a lot. So two things: your receptionist is flooded with calls, and empty chairs from no-shows. ClinicDesk lets patients book through a WhatsApp link, which takes calls off your receptionist, and it sends WhatsApp reminders a day before and two hours before, which is where clinics usually cut no-shows."
+    },
+    {
+      "idx": 8,
+      "speaker": "agent",
+      "start_sec": 67.4,
+      "end_sec": 71.5,
+      "text": "Hmm. But my patients are older. They won't use an app."
+    },
+    {
+      "idx": 9,
+      "speaker": "user",
+      "start_sec": 72.0,
+      "end_sec": 81.5,
+      "text": "Fair point. There's no app. It's all on WhatsApp, which most of your patients already use. They just reply to a message."
+    },
+    {
+      "idx": 10,
+      "speaker": "agent",
+      "start_sec": 82.3,
+      "end_sec": 83.4,
+      "text": "And the price?"
+    },
+    {
+      "idx": 11,
+      "speaker": "user",
+      "start_sec": 84.1,
+      "end_sec": 87.6,
+      "text": "It's one thousand four hundred ninety-nine a month."
+    },
+    {
+      "idx": 12,
+      "speaker": "agent",
+      "start_sec": 88.7,
+      "end_sec": 91.3,
+      "text": "That's too much for a small clinic."
+    },
+    {
+      "idx": 13,
+      "speaker": "user",
+      "start_sec": 91.8,
+      "end_sec": 95.3,
+      "text": "I understand. What does one missed appointment cost you?"
+    },
+    {
+      "idx": 14,
+      "speaker": "agent",
+      "start_sec": 95.9,
+      "end_sec": 98.9,
+      "text": "Maybe fifteen hundred, two thousand for a cleaning."
+    },
+    {
+      "idx": 15,
+      "speaker": "user",
+      "start_sec": 100.0,
+      "end_sec": 112.2,
+      "text": "So if reminders save you even one no-show a month, it pays for itself. You don't have to take my word for it. There's a fourteen-day free trial, and setup takes one day."
+    },
+    {
+      "idx": 16,
+      "speaker": "agent",
+      "start_sec": 112.8,
+      "end_sec": 113.9,
+      "text": "Okay. That's reasonable."
+    },
+    {
+      "idx": 17,
+      "speaker": "user",
+      "start_sec": 114.5,
+      "end_sec": 122.0,
+      "text": "Could I show you a fifteen-minute demo on Thursday at four, and we start the trial the same day?"
+    },
+    {
+      "idx": 18,
+      "speaker": "agent",
+      "start_sec": 122.9,
+      "end_sec": 124.3,
+      "text": "Thursday at four works."
+    },
+    {
+      "idx": 19,
+      "speaker": "user",
+      "start_sec": 125.3,
+      "end_sec": 129.4,
+      "text": "Great, I'll send a WhatsApp confirmation now. Thank you, Doctor."
+    }
+  ]
+}

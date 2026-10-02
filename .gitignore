@@ -1,0 +1,11 @@
+node_modules/
+.env
+.env.local
+.env.*.local
+*.log
+.next/
+dist/
+
+# Exclude private notes and report
+notes/
+REPORT.pdf

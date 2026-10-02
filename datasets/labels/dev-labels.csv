@@ -1,0 +1,46 @@
+call_id,agent_id,criterion,weight_pct,score,evidence_turns,notes
+sup-01,support-nimbus-broadband,Diagnosis,25,5,2;3;6;7;8,"Verified the caller, checked for an outage, asked about router lights and whether all devices were affected."
+sup-01,support-nimbus-broadband,Resolution or escalation,30,5,10;12;13;14;15,Restart fixed it and the agent confirmed with a 96 Mbps speed test on a 100 Mbps plan.
+sup-01,support-nimbus-broadband,Policy compliance,20,5,14;16,"No refunds, upgrades, discounts or prices were mentioned."
+sup-01,support-nimbus-broadband,Customer outcome,15,5,15;16;17,Customer confirms the fix and ends clear on what to do if it recurs.
+sup-01,support-nimbus-broadband,Call handling,10,5,16,No repetition and a clear closing summary.
+sup-01,support-nimbus-broadband,OVERALL (pass/fail),,pass,,Weighted total 5.00; no hard rule fired.
+sup-03,support-nimbus-broadband,Diagnosis,25,2,2;3;4;6;7,"Verified and asked about lights but never checked for an outage, restarted or ran a speed test before jumping to compensation."
+sup-03,support-nimbus-broadband,Resolution or escalation,30,1,8;12;13;14,"No ticket number, technician timing answered with 'soon', and a refund and free upgrade offered instead of a fix, which is the wrong action."
+sup-03,support-nimbus-broadband,Policy compliance,20,1,8;10,"Promised a full refund and a free 300 Mbps upgrade for three months, both explicitly banned."
+sup-03,support-nimbus-broadband,Customer outcome,15,2,9;11;13;14;15,Customer is placated by promises the agent cannot honour and leaves without knowing when the drops will be fixed.
+sup-03,support-nimbus-broadband,Call handling,10,3,12;14;16,"No loops but no summary, and the 'when' question was dodged."
+sup-03,support-nimbus-broadband,OVERALL (pass/fail),,fail,,Weighted total 1.60; hard rule fired: Policy compliance = 1 (full refund and free upgrade promised).
+sup-06,support-nimbus-broadband,Diagnosis,25,1,7;8;9;10,"Customer reported a red LOS light, the agent heard 'loss of speed', never checked for an outage and kept prescribing a restart."
+sup-06,support-nimbus-broadband,Resolution or escalation,30,1,8;10;12;13,Red LOS requires an immediate technician ticket; the agent looped on restart and the customer hung up with nothing.
+sup-06,support-nimbus-broadband,Policy compliance,20,5,8;10;12,"No promises, prices or discounts were mentioned."
+sup-06,support-nimbus-broadband,Customer outcome,15,1,11;13,Customer is angry and gives up.
+sup-06,support-nimbus-broadband,Call handling,10,1,2;4;5;8;10;12,Asked for verification twice and repeated the restart request three times.
+sup-06,support-nimbus-broadband,OVERALL (pass/fail),,fail,,"Weighted total 1.80; no hard rule fired; flag: agent misbehaved: repeated verification, misheard LOS, looped on restart."
+trn-01,training-paylite-soundbox,Product knowledge,40,5,3;5;7;11,"Price, free first month, UPI only, documents without GST, and T+0 all match the fact sheet."
+trn-01,training-paylite-soundbox,Objection handling,30,5,9,"Fake-screenshot fraud, staff not checking the phone, own language, free first month and 30-day return."
+trn-01,training-paylite-soundbox,Compliance,20,5,9,"No loans, cashback or fee waivers promised."
+trn-01,training-paylite-soundbox,Clarity,10,5,3;5;7;9;11,Concise and confident.
+trn-01,training-paylite-soundbox,OVERALL (pass/fail),,pass,,Weighted total 5.00; no hard rule fired.
+trn-02,training-paylite-soundbox,Product knowledge,40,1,3;5;7;11,"Confidently wrong on three of four facts: cards accepted (UPI only), GST compulsory (not required), T+1 (instant); also omitted the free first month."
+trn-02,training-paylite-soundbox,Objection handling,30,5,9,"Fake-screenshot fraud and staff not checking the phone, clearly stated and merchant-focused."
+trn-02,training-paylite-soundbox,Compliance,20,5,5;9,"No loans, cashback or fee waivers; the wrong facts count against knowledge, not compliance."
+trn-02,training-paylite-soundbox,Clarity,10,5,3;5;7;9;11,"Fluent and easy to follow, which is exactly why the errors are dangerous."
+trn-02,training-paylite-soundbox,OVERALL (pass/fail),,fail,,"Weighted total 3.40; hard rule fired: Product knowledge <= 2 (three confident wrong facts at 5, 7, 11); flag: confident tone masks wrong facts."
+trn-04,training-paylite-soundbox,Product knowledge,40,5,3;5;7;11,All four facts correct.
+trn-04,training-paylite-soundbox,Objection handling,30,3,9,Opens with the real fake-screenshot benefit but leans on invented loan and cashback promises to persuade.
+trn-04,training-paylite-soundbox,Compliance,20,1,9,"Promised easy business-loan approval and guaranteed cashback, both explicitly banned."
+trn-04,training-paylite-soundbox,Clarity,10,5,3;5;7;11,"Short, confident answers."
+trn-04,training-paylite-soundbox,OVERALL (pass/fail),,fail,,"Weighted total 3.60; hard rule fired: Compliance = 1 (loan and cashback promised at 9); flag: weighted total is above 3.5, only the hard rule fails it."
+sal-01,sales-clinicdesk-pitch,Discovery,25,5,1;3;5,Open questions uncovered the 80 calls a day and the 25% no-shows.
+sal-01,sales-clinicdesk-pitch,Value linked to needs,25,5,7;13;15,"Booking link tied to receptionist load, reminders tied to no-shows, and price tied to the cost of one missed appointment."
+sal-01,sales-clinicdesk-pitch,Objection handling,25,5,9;13;15,"No-app answer for older patients and a cost-of-no-show plus free-trial answer on price, all within the fact sheet."
+sal-01,sales-clinicdesk-pitch,Next step,15,5,17;18,Doctor agreed to a demo on Thursday at four with the trial starting the same day.
+sal-01,sales-clinicdesk-pitch,Listening and talk balance,10,5,1;3;5;7;13,"Asked, waited and built each turn on the doctor's answer."
+sal-01,sales-clinicdesk-pitch,OVERALL (pass/fail),,pass,,Weighted total 5.00; no hard rule fired.
+sal-02,sales-clinicdesk-pitch,Discovery,25,1,1;3;5,No question about the clinic at any point.
+sal-02,sales-clinicdesk-pitch,Value linked to needs,25,1,1;3;5,"Feature list with no link to the doctor, including features ClinicDesk does not have (patient records, billing, dashboards, doctor app)."
+sal-02,sales-clinicdesk-pitch,Objection handling,25,1,5;9,Told the doctor everyone uses apps (the product has no app) and answered the price objection with 'you must take it'.
+sal-02,sales-clinicdesk-pitch,Next step,15,1,10;11,'I'll send you a brochure' after the doctor said he would think about it.
+sal-02,sales-clinicdesk-pitch,Listening and talk balance,10,1,1;2;3,Cut the doctor off at turn 2 and monologued.
+sal-02,sales-clinicdesk-pitch,OVERALL (pass/fail),,fail,,"Weighted total 1.00; hard rule fired: invented features (patient records, billing, analytics, multi-doctor calendars, doctor app at 1, 3, 5)."

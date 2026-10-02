@@ -1,0 +1,94 @@
+{
+  "call_id": "sal-05",
+  "agent_id": "sales-clinicdesk-pitch",
+  "started_at": "2026-09-16T14:37:48+05:30",
+  "duration_sec": 63.3,
+  "end_reason": "completed",
+  "language": "en-IN",
+  "turns": [
+    {
+      "idx": 0,
+      "speaker": "agent",
+      "start_sec": 0.3,
+      "end_sec": 5.1,
+      "text": "Hello, Dr. Mehta speaking. I have about five minutes. What is this about?"
+    },
+    {
+      "idx": 1,
+      "speaker": "user",
+      "start_sec": 6.3,
+      "end_sec": 12.8,
+      "text": "Hi Doctor, Karan from ClinicDesk. Quick question first: how do patients book with you today?"
+    },
+    {
+      "idx": 2,
+      "speaker": "agent",
+      "start_sec": 13.4,
+      "end_sec": 15.6,
+      "text": "By phone. My receptionist handles it."
+    },
+    {
+      "idx": 3,
+      "speaker": "user",
+      "start_sec": 16.2,
+      "end_sec": 19.0,
+      "text": "And no-shows, is that a problem?"
+    },
+    {
+      "idx": 4,
+      "speaker": "agent",
+      "start_sec": 19.8,
+      "end_sec": 22.4,
+      "text": "About a quarter of patients don't come."
+    },
+    {
+      "idx": 5,
+      "speaker": "user",
+      "start_sec": 23.7,
+      "end_sec": 33.8,
+      "text": "That's a lot of empty chair time. ClinicDesk sends WhatsApp reminders before each appointment. We guarantee fifty percent fewer no-shows, or your money back."
+    },
+    {
+      "idx": 6,
+      "speaker": "agent",
+      "start_sec": 34.9,
+      "end_sec": 36.8,
+      "text": "Guarantee? Hmm. And the price?"
+    },
+    {
+      "idx": 7,
+      "speaker": "user",
+      "start_sec": 37.2,
+      "end_sec": 45.6,
+      "text": "Normally fourteen ninety-nine a month. But if you sign today, I can give you forty percent off, for you only."
+    },
+    {
+      "idx": 8,
+      "speaker": "agent",
+      "start_sec": 46.9,
+      "end_sec": 50.3,
+      "text": "My patients are older. They won't use an app."
+    },
+    {
+      "idx": 9,
+      "speaker": "user",
+      "start_sec": 50.9,
+      "end_sec": 54.5,
+      "text": "No app needed, it's on WhatsApp. They just reply."
+    },
+    {
+      "idx": 10,
+      "speaker": "agent",
+      "start_sec": 55.6,
+      "end_sec": 57.5,
+      "text": "Alright. Send me the details."
+    },
+    {
+      "idx": 11,
+      "speaker": "user",
+      "start_sec": 58.7,
+      "end_sec": 63.3,
+      "text": "I'll book a demo for tomorrow at eleven. Thank you, Doctor."
+    }
+  ]
+}

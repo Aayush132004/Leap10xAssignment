@@ -1,0 +1,143 @@
+{
+  "call_id": "sup-02",
+  "agent_id": "support-nimbus-broadband",
+  "started_at": "2026-09-08T18:40:51+05:30",
+  "duration_sec": 109.6,
+  "end_reason": "completed",
+  "language": "hi-en",
+  "turns": [
+    {
+      "idx": 0,
+      "speaker": "agent",
+      "start_sec": 0.3,
+      "end_sec": 5.1,
+      "text": "Namaste, Nimbus Broadband support. Kya main account holder se baat kar raha hoon?"
+    },
+    {
+      "idx": 1,
+      "speaker": "user",
+      "start_sec": 5.8,
+      "end_sec": 8.9,
+      "text": "Haan, main Sunita Verma bol rahi hoon."
+    },
+    {
+      "idx": 2,
+      "speaker": "agent",
+      "start_sec": 10.2,
+      "end_sec": 15.3,
+      "text": "Thank you Sunita ji. Verification ke liye registered mobile ke last four digits bataiye."
+    },
+    {
+      "idx": 3,
+      "speaker": "user",
+      "start_sec": 16.4,
+      "end_sec": 17.2,
+      "text": "2290."
+    },
+    {
+      "idx": 4,
+      "speaker": "agent",
+      "start_sec": 18.0,
+      "end_sec": 23.9,
+      "text": "Verified. Maine check kiya, aapke area mein koi reported outage nahi hai. Batayiye kya problem hai?"
+    },
+    {
+      "idx": 5,
+      "speaker": "user",
+      "start_sec": 24.6,
+      "end_sec": 29.1,
+      "text": "Kal raat se internet bilkul nahi chal raha. Ek dum band hai."
+    },
+    {
+      "idx": 6,
+      "speaker": "agent",
+      "start_sec": 29.8,
+      "end_sec": 33.1,
+      "text": "Samajh gaya. Router pe kaunsi lights jal rahi hain?"
+    },
+    {
+      "idx": 7,
+      "speaker": "user",
+      "start_sec": 33.8,
+      "end_sec": 39.1,
+      "text": "Power green hai, aur ek light red hai. Uske neeche LOS likha hai."
+    },
+    {
+      "idx": 8,
+      "speaker": "agent",
+      "start_sec": 39.7,
+      "end_sec": 51.5,
+      "text": "Red LOS light ka matlab hai fibre line mein signal nahi aa raha. Isko restart se theek nahi kiya ja sakta, technician ko aana padega. Main abhi ticket raise kar raha hoon."
+    },
+    {
+      "idx": 9,
+      "speaker": "user",
+      "start_sec": 52.4,
+      "end_sec": 53.2,
+      "text": "Theek hai."
+    },
+    {
+      "idx": 10,
+      "speaker": "agent",
+      "start_sec": 54.4,
+      "end_sec": 58.4,
+      "text": "Aapka ticket number hai NB-58213. Technician 48 ghante ke andar aayega."
+    },
+    {
+      "idx": 11,
+      "speaker": "user",
+      "start_sec": 58.9,
+      "end_sec": 62.9,
+      "text": "48 ghante? Mere bete ka parso online exam hai."
+    },
+    {
+      "idx": 12,
+      "speaker": "agent",
+      "start_sec": 63.6,
+      "end_sec": 73.2,
+      "text": "Main samajhta hoon. Main ticket pe priority note daal deta hoon, lekin exact time ka promise nahi kar sakta. Technician aane se pehle aapko SMS aayega."
+    },
+    {
+      "idx": 13,
+      "speaker": "user",
+      "start_sec": 74.3,
+      "end_sec": 78.1,
+      "text": "Aur jitne din internet band hai, uska paisa?"
+    },
+    {
+      "idx": 14,
+      "speaker": "agent",
+      "start_sec": 78.9,
+      "end_sec": 90.0,
+      "text": "Agar outage 24 ghante se zyada ka confirm hota hai, to technician visit ke baad aapke account mein service credit add ho sakta hai. Maximum teen din ke charges tak."
+    },
+    {
+      "idx": 15,
+      "speaker": "user",
+      "start_sec": 91.2,
+      "end_sec": 94.4,
+      "text": "Okay. Ticket number ek baar phir bataiye."
+    },
+    {
+      "idx": 16,
+      "speaker": "agent",
+      "start_sec": 94.9,
+      "end_sec": 104.9,
+      "text": "NB-58213. Ye SMS pe bhi aa jayega. To summary ye hai: line fault hai, technician 48 ghante mein aayega, aur service credit visit ke baad confirm hoga."
+    },
+    {
+      "idx": 17,
+      "speaker": "user",
+      "start_sec": 106.1,
+      "end_sec": 107.6,
+      "text": "Theek hai, thank you."
+    },
+    {
+      "idx": 18,
+      "speaker": "agent",
+      "start_sec": 108.5,
+      "end_sec": 109.6,
+      "text": "Dhanyavaad Sunita ji."
+    }
+  ]
+}
